@@ -19,6 +19,9 @@ public class Contact {
         this.email = email;
     }
 
+    public Contact(String nguyenVanA, String number) {
+    }
+
     // Getters + Setters
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
