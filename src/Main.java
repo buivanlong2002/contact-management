@@ -1,4 +1,3 @@
-
 import view.HomeView;
 
 public class Main {
