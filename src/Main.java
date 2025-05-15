@@ -1,7 +1,8 @@
-import controller.ContactController;
+
+import view.HomeView;
 
 public class Main {
     public static void main(String[] args) {
-          new ContactController().run();
+          new HomeView().run();
     }
 }
