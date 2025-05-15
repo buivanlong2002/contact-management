@@ -21,14 +21,25 @@ public class FileUtil {
             return list;
         }
 
-        public static void writeToCSV(List<Contact> list, String path) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-                for (Contact c : list) {
-                    writer.write(c.toCSV());
-                    writer.newLine();
-                }
-            } catch (IOException e) {
-                System.out.println(" Lỗi ghi file: " + e.getMessage());
+    public static void writeToCSV(List<Contact> contacts, String path) {
+        try {
+            File file = new File(path);
+
+            // Tạo thư mục cha nếu chưa tồn tại
+            File parentDir = file.getParentFile();
+            if (parentDir != null && !parentDir.exists()) {
+                parentDir.mkdirs(); // tạo thư mục cha
             }
+
+            try (PrintWriter pw = new PrintWriter(file)) {
+                for (Contact c : contacts) {
+                    pw.println(c.toCSV());
+                }
+            }
+
+            System.out.println("✅ Ghi file thành công!");
+        } catch (IOException e) {
+            System.out.println("❌ Lỗi ghi file: " + e.getMessage());
         }
+    }
 }

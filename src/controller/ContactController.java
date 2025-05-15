@@ -11,7 +11,7 @@ public class ContactController {
     private final Scanner sc = new Scanner(System.in);
     private final ContactService service = new ContactService();
     private final InputHelper inputHelper = new InputHelper(sc);
-    private final String filePath = "contacts.csv";
+    private final String filePath = "data/contacts.csv";
 
     public void displayAll() {
         List<Contact> list = service.getAll();
